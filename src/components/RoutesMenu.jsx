@@ -1,14 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Header } from "../styles/MenuStyled";
+import { Header, Image, List, ListItem } from "../styles/MenuStyled";
+import Logo from "../assets/logo.png";
 
 const links = [
   {
-    name: "Inicio",
+    id: 1,
+    name: "INICIO",
     href: "/",
   },
   {
-    name: "Mapas",
+    id: 2,
+    name: "MAPAS",
     href: "/mapas",
   },
 ];
@@ -16,9 +18,14 @@ const links = [
 const RoutesMenu = () => {
   return (
     <Header>
-      {links.map((link) => (
-        <Link to={link.href}>{link.name}</Link>
-      ))}
+      <Image src={Logo}></Image>
+      <List>
+        {links.map((link) => (
+          <ListItem key={link.id} to={link.href}>
+            {link.name}
+          </ListItem>
+        ))}
+      </List>
     </Header>
   );
 };
